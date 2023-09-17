@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "My Chrome Extension",
+  "version": "1.0",
+  "description": "自用js脚本集",
+  "permissions": [
+	  "downloads",
+	  "activeTab"
+  ],
+  "action": {
+    "_default_popup": "popup.html",
+    "default_icon": {
+		"128": "images/logo128.png"
+    }
+  },
+  "content_scripts": [
+    {
+	  "_explain": "这部分是DLsite网站的自动下载内容",
+      "matches": ["https://www.dlsite.com/maniax/work/*"],
+      "js": [
+	  "scripts/DLsiteDownload.js"
+	  ]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
